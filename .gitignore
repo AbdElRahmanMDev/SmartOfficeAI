@@ -1,0 +1,41 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS cache
+.vs/
+
+# Logs
+*.log
+
+# OS-specific
+Thumbs.db
+.DS_Store
+
+# Configs (don’t commit local secrets)
+appsettings.Development.json
+appsettings.Local.json
+*.secrets.json
+*.env
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Rider
+.idea/
+
+# Test results
+TestResult/
+coverage/
+
+# Others
+*.db
