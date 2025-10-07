@@ -14,7 +14,8 @@
         public string Languages { get; set; }
         public string CVFilePath { get; set; }
 
-
+        public Guid JobDescriptionId { get; set; }
+        public JobDescription JobDescription { get; set; }
         public ICollection<CandidateAnalysis> Analyses { get; set; } = [];
 
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartOfficeAI.Persistance;
 
@@ -11,9 +12,11 @@ using SmartOfficeAI.Persistance;
 namespace SmartOfficeAI.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251007140050_AddNewTable")]
+    partial class AddNewTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,9 +111,6 @@ namespace SmartOfficeAI.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("JobDescriptionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Languages")
                         .IsRequired()
                         .HasMaxLength(500)
@@ -130,8 +130,6 @@ namespace SmartOfficeAI.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("JobDescriptionId");
 
                     b.ToTable("Candidates", (string)null);
                 });
@@ -562,7 +560,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("11111111-1111-1111-1111-111111111111"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 236, DateTimeKind.Utc).AddTicks(8899),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 784, DateTimeKind.Utc).AddTicks(5195),
                             Description = "موظف عادي - Access: Tabs 1-4, 6 (Email management + personal productivity)",
                             IsDeleted = false,
                             Name = "Regular Employee"
@@ -570,7 +568,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("22222222-2222-2222-2222-222222222222"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 236, DateTimeKind.Utc).AddTicks(8920),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 784, DateTimeKind.Utc).AddTicks(5212),
                             Description = "موارد بشرية - Access: Tabs 1-6 (Full platform: Email + CV screening & recruitment)",
                             IsDeleted = false,
                             Name = "HR / Talent Acquisition"
@@ -578,7 +576,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("33333333-3333-3333-3333-333333333333"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 236, DateTimeKind.Utc).AddTicks(8926),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 784, DateTimeKind.Utc).AddTicks(5217),
                             Description = "موظف الاتصالات الإدارية - Access: Tabs 1-4, 6, 7 (Document Processing)",
                             IsDeleted = false,
                             Name = "Administrative Communications Officer"
@@ -586,7 +584,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("44444444-4444-4444-4444-444444444444"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 236, DateTimeKind.Utc).AddTicks(8930),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 784, DateTimeKind.Utc).AddTicks(5222),
                             Description = "مدير النظام - Full system access and management",
                             IsDeleted = false,
                             Name = "Admin"
@@ -675,7 +673,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("cbdc2d0f-0d5e-4f1c-9b89-1a9d6c2a3e41"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 238, DateTimeKind.Utc).AddTicks(6720),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 786, DateTimeKind.Utc).AddTicks(2902),
                             IsDeleted = false,
                             Purpose = "User persona & preferences",
                             TabDescription = "",
@@ -686,7 +684,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6f67e59c-04b5-4584-8a6d-b8cb3ac92f29"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 238, DateTimeKind.Utc).AddTicks(6735),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 786, DateTimeKind.Utc).AddTicks(2917),
                             IsDeleted = false,
                             Purpose = "Smart email management",
                             TabDescription = "",
@@ -697,7 +695,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e3b6d8a2-faf8-4c82-912f-4420b4cf29a3"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 238, DateTimeKind.Utc).AddTicks(6741),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 786, DateTimeKind.Utc).AddTicks(2923),
                             IsDeleted = false,
                             Purpose = "Draft, analyze, rephrase emails",
                             TabDescription = "",
@@ -708,7 +706,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("23db5a92-63f0-4f42-b5e0-64e6b1a52e6f"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 238, DateTimeKind.Utc).AddTicks(6746),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 786, DateTimeKind.Utc).AddTicks(2927),
                             IsDeleted = false,
                             Purpose = "AI-powered file management",
                             TabDescription = "",
@@ -719,7 +717,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ff4978e1-dc02-4cc0-bb27-8783c5a6a1c1"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 238, DateTimeKind.Utc).AddTicks(6763),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 786, DateTimeKind.Utc).AddTicks(2931),
                             IsDeleted = false,
                             Purpose = "CV screening & candidate ranking",
                             TabDescription = "",
@@ -730,7 +728,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6c0e4a4b-1cf8-4626-9358-4cf0ee1a5a36"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 238, DateTimeKind.Utc).AddTicks(6768),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 786, DateTimeKind.Utc).AddTicks(2936),
                             IsDeleted = false,
                             Purpose = "Performance metrics & insights",
                             TabDescription = "",
@@ -741,7 +739,7 @@ namespace SmartOfficeAI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1d8239c9-76a4-4f73-a49e-087799cfd506"),
-                            CreatedDate = new DateTime(2025, 10, 7, 14, 16, 4, 238, DateTimeKind.Utc).AddTicks(6772),
+                            CreatedDate = new DateTime(2025, 10, 7, 14, 0, 49, 786, DateTimeKind.Utc).AddTicks(2940),
                             IsDeleted = false,
                             Purpose = "Official correspondence automation",
                             TabDescription = "",
@@ -829,17 +827,6 @@ namespace SmartOfficeAI.Persistence.Migrations
                     b.Navigation("EmailDraft");
 
                     b.Navigation("EmailMessage");
-                });
-
-            modelBuilder.Entity("SmartOfficeAI.Entities.Candidate", b =>
-                {
-                    b.HasOne("SmartOfficeAI.Entities.JobDescription", "JobDescription")
-                        .WithMany("Candidates")
-                        .HasForeignKey("JobDescriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("JobDescription");
                 });
 
             modelBuilder.Entity("SmartOfficeAI.Entities.CandidateAnalysis", b =>
@@ -969,8 +956,6 @@ namespace SmartOfficeAI.Persistence.Migrations
             modelBuilder.Entity("SmartOfficeAI.Entities.JobDescription", b =>
                 {
                     b.Navigation("Analyses");
-
-                    b.Navigation("Candidates");
                 });
 
             modelBuilder.Entity("SmartOfficeAI.Entities.Role", b =>

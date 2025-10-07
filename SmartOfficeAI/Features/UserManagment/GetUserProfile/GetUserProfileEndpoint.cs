@@ -12,7 +12,7 @@ namespace SmartOfficeAI.Features.UserManagment.GetUserProfile
         }
 
         [HttpGet("api/user/profile")]
-        public async Task<IActionResult> GetDisabilityById([FromQuery] UserProfileRequestViewModel request)
+        public async Task<IActionResult> GetUserProfileId([FromQuery] UserProfileRequestViewModel request)
         {
             var validationResult = await ValidateRequestAsync(request);
             if (!validationResult.IsSuccess)

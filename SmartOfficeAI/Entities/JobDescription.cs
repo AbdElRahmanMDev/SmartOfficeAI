@@ -13,6 +13,8 @@ namespace SmartOfficeAI.Entities
         public DateTime CreatedDate { get; set; }
         public JobStatus jobStatus { get; set; }
 
+        public ICollection<Candidate> Candidates { get; set; } = new List<Candidate>();
+
         public ICollection<CandidateAnalysis> Analyses { get; set; }
     }
 }

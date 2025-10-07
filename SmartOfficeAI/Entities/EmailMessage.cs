@@ -16,8 +16,9 @@
 
         public string? Body { get; set; }
 
-        //  AI classification (Urgent, Normal, Spam, etc.)
-        public string? Category { get; set; }
+        public Guid? EmailClassificationId { get; set; }
+        public EmailClassification? EmailClassification { get; set; }
+
         public User? FromUser { get; set; }
         public User? ToUser { get; set; }
         public virtual ICollection<Attachment> Attachments { get; set; } = new List<Attachment>();
