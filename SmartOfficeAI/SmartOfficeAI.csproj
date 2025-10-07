@@ -30,7 +30,6 @@
     <Folder Include="Features\UserManagment\LoginUser\" />
     <Folder Include="Features\UserManagment\ApproveUserAccount\" />
     <Folder Include="Features\UserManagment\ChangeUserRole\" />
-    <Folder Include="Features\UserManagment\RegisterUser\ViewModels\" />
     <Folder Include="Features\UserManagment\UpdateUserProfile\" />
   </ItemGroup>
 

@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SmartOfficeAI.Entities;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
 namespace SmartOfficeAI.Persistance.Data
 {
@@ -58,11 +56,15 @@ namespace SmartOfficeAI.Persistance.Data
             return Get().Where(predicate);
         }
 
-        public bool Any(Expression<Func<T, bool>> predicate)
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
         {
-            return Get().Any(predicate);
+            return await Get().AnyAsync(predicate);
         }
 
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
 
     }
 }

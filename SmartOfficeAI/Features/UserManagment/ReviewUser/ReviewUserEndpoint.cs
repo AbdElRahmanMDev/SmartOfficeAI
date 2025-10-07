@@ -1,26 +1,28 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using SmartOfficeAI.Features.Common;
-using SmartOfficeAI.Features.UserManagment.RegisterUser.Command;
+using SmartOfficeAI.Features.UserManagment.ReviewUser.Command;
 
-namespace SmartOfficeAI.Features.UserManagment.RegisterUser
+namespace SmartOfficeAI.Features.UserManagment.ReviewUser
 {
-    public class RegisterUserEndpoint : EndpointBase<RegisterUserRequest, IActionResult>
+    public class ReviewUserEndpoint : EndpointBase<ReviewUserRequest, IActionResult>
     {
-        public RegisterUserEndpoint(EndpointBaseParameters<RegisterUserRequest> dependencyCollection) : base(dependencyCollection)
+        public ReviewUserEndpoint(EndpointBaseParameters<ReviewUserRequest> dependencyCollection) : base(dependencyCollection)
         {
         }
 
-        [HttpPost("api/users/register")]
-        public async Task<IActionResult> Register(RegisterUserRequest request)
+        [HttpPost("api/role/review")]
+        public async Task<IActionResult> Review(ReviewUserRequest request)
         {
+
             var validationResult = await ValidateRequestAsync(request);
             if (!validationResult.IsSuccess)
                 return BadRequest(validationResult);
 
-            var command = request.Adapt<RegisterUserCommand>();
-
+            var command = request.Adapt<ReviewUserCommand>();
             var result = await _mediator.Send(command);
+
+
 
             if (result.IsSuccess)
                 return Ok(result.Data);
@@ -28,6 +30,5 @@ namespace SmartOfficeAI.Features.UserManagment.RegisterUser
             var statusCode = result.ErrorCode.StatusCode ?? StatusCodes.Status400BadRequest;
             return StatusCode(statusCode, result.ErrorCode);
         }
-
     }
 }

@@ -1,16 +1,16 @@
-﻿using SmartOfficeAI.Common.Enums;
+﻿using SmartOfficeAI.Abstraction;
 
 namespace SmartOfficeAI.Common.Views
 {
-    public record RequestResult<T>(T Data, bool IsSuccess, string Message, ErrorCode ErrorCode)
+    public record RequestResult<T>(T Data, bool IsSuccess, string Message, Error ErrorCode)
     {
         public static RequestResult<T> Success(T data, string message)
         {
-            return new RequestResult<T>(data, true, message, ErrorCode.Unknown);
+            return new RequestResult<T>(data, true, message, Error.None);
         }
 
 
-        public static RequestResult<T> Failure(ErrorCode errorCode, string message)
+        public static RequestResult<T> Failure(Error errorCode, string message)
         {
             return new RequestResult<T>(default, false, message, errorCode);
         }

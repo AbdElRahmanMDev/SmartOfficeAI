@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Mapster;
 using MapsterMapper;
+using Microsoft.AspNetCore.Identity;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 using SmartOfficeAI.Features.Common;
 using SmartOfficeAI.Persistance;
@@ -27,6 +28,8 @@ namespace SmartOfficeAI
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddScoped<RequestHandlerBaseParameters>();
+            services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+            services.AddScoped(typeof(EndpointBaseParameters<>));
 
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(connectionString));

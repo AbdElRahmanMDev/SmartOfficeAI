@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SmartOfficeAI.Common.Enums;
 using SmartOfficeAI.Common.Views;
 
 namespace SmartOfficeAI.Features.Common
@@ -33,7 +32,7 @@ namespace SmartOfficeAI.Features.Common
 
             var validationErrors = string.Join(", ", validationResults.Errors.Select(e => e.ErrorMessage));
             var errMsg = string.Format("Validation failed:\n {0}", validationErrors);
-            return EndPointResponse<TResponse>.Failure(ErrorCode.ValidationErrors, errMsg);
+            return EndPointResponse<TResponse>.Failure(new Abstraction.Error("ValidationError", "Validation.Error", StatusCodes.Status400BadRequest), errMsg);
 
         }
 

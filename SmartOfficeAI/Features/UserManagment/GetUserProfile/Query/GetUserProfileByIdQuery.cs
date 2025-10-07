@@ -1,9 +1,7 @@
 ﻿using Mapster;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using SmartOfficeAI.Common.Enums;
 using SmartOfficeAI.Common.Views;
-using SmartOfficeAI.Entities;
+using SmartOfficeAI.Errors;
 using SmartOfficeAI.Features.Common;
 using SmartOfficeAI.Persistance.Data;
 
@@ -28,7 +26,7 @@ namespace SmartOfficeAI.Features.UserManagment.GetUserProfile.Query
 
             if (user is null)
             {
-                return RequestResult<UserProfileDto>.Failure(ErrorCode.UserNotFound, "user not found");
+                return RequestResult<UserProfileDto>.Failure(UserErrors.UserNotFound, "user not found");
             }
             return RequestResult<UserProfileDto>.Success(user, "user data retrieved successfully ");
 
