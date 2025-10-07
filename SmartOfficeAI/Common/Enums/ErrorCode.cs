@@ -8,6 +8,10 @@ namespace SmartOfficeAI.Common.Enums
         Unknown = 0,
 
         [Description("Validation errors")]
-        ValidationErrors = 1
+        ValidationErrors = 1,
+
+
+        [Description("User Not Found")]
+        UserNotFound = 2,
     }
 }

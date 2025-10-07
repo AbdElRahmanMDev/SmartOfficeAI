@@ -22,17 +22,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="SharpGrip.FluentValidation.AutoValidation.Mvc" Version="1.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Features\UserManagment\LoginUser\" />
-    <Folder Include="Features\UserManagment\GetUserProfile\" />
     <Folder Include="Features\UserManagment\ApproveUserAccount\" />
     <Folder Include="Features\UserManagment\ChangeUserRole\" />
+    <Folder Include="Features\UserManagment\RegisterUser\ViewModels\" />
     <Folder Include="Features\UserManagment\UpdateUserProfile\" />
-    <Folder Include="Features\UserManagment\RegisterUser\" />
-    <Folder Include="Persistance\" />
   </ItemGroup>
 
 </Project>

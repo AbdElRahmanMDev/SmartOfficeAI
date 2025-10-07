@@ -6,6 +6,8 @@ namespace SmartOfficeAI.Entities
     public class UserRequests : BaseEntity
     {
         public Guid UserId { get; set; }
+        [ForeignKey(nameof(UserId))]
+
         public User User { get; set; } = default!;
 
         public Guid RequestedRoleId { get; set; }
@@ -13,7 +15,7 @@ namespace SmartOfficeAI.Entities
 
         public Role RequestedRole { get; set; } = default!;
 
-        public Status Status { get; set; } = Status.Pending;
+        public RequestStatus Status { get; set; } = RequestStatus.Pending;
 
         public Guid? ReviewedById { get; set; }  // Admin UserId
 

@@ -1,6 +1,6 @@
 ﻿namespace SmartOfficeAI.Entities.Common
 {
-    public enum Status
+    public enum RequestStatus
     {
         Pending,
         Active,
